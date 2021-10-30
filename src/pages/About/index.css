@@ -1,0 +1,65 @@
+/* .teamwork {
+    background-image: url("../../assets/Images/about_01.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 30vh;
+    filter: grayscale(100%);
+
+}
+.philosophy {
+    background-image: url("../../assets/Images/about_02.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 15vh;
+    background-size: 100%;
+    filter: grayscale(100%);
+}
+.office {
+    background-image: url("../../assets/Images/about_03.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 15vh;
+    background-size: 100%;
+    filter: grayscale(100%);
+} */
+
+
+.teamwork img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+}
+
+.teamwork img:hover {
+    filter: grayscale(0%);
+}
+
+.philosophy img {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+}
+
+.philosophy img:hover {
+    filter: grayscale(0%);
+}
+
+.office img {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+}
+
+.office img:hover {
+    filter: grayscale(0%);
+}
+
+#about {
+    display: flex;
+    justify-content: start !important;
+}

@@ -1,0 +1,36 @@
+.modal_login {
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  color: white;
+  border-left: #55acee 3px solid;
+  border-top: #dd4b39 5px solid;
+  border-bottom: #3b5998 5px solid;
+  border-right: green 3px solid;
+}
+
+.twitter {
+  background-color: #55acee;
+  color: white;
+}
+.email {
+  color: white;
+  background-color: green;
+}
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+.fb {
+  background-color: #3b5998;
+  color: white;
+}
+.btn_close {
+  font-size: 40px;
+  cursor: pointer;
+}
+.modal_text {
+  font-weight: 100;
+}

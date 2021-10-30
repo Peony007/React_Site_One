@@ -1,0 +1,56 @@
+body {
+  background: aliceblue;
+}
+
+/* Blog */
+
+.blog_title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+  font-family: sans-serif;
+  color: var(--e-global-color-primary);
+  font-family: var(--e-global-typography-primary-font-family), Sans-serif;
+  font-size: 50px !important;
+}
+
+.blog_sm_title {
+  color: #e9204f;
+  font-family: 'Trade Gothic', Sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 17px;
+  font-size: 18px !important;
+}
+
+.blog {
+  padding: 0px 0px 100px 0px;
+}
+.blog_text {
+  color: white;
+  font-size: 10px;
+}
+
+.zoom_1_blog img {
+  position: relative;
+}
+.zoom_1_blog img .black_display_blog {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 3;
+  display: block;
+}
+
+.zoom_1_blog img:hover .black_display {
+  display: block;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0px;
+  background-color: black;
+}

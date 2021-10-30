@@ -1,0 +1,255 @@
+body {
+  background-color: #ffffff;
+}
+
+.contact {
+  margin-top: -75px;
+}
+
+.contact_btn {
+  position: relative;
+  top: -1px;
+  left: -2px;
+  background-color: #1b1b1b;
+  width: 201px !important;
+  height: 60px;
+  border: 2px solid #e9204f;
+  cursor: pointer;
+  width: 50%;
+  /* border-width: 200px; */
+}
+
+.contact_btn .contact_text {
+  position: absolute;
+  top: 14px;
+  left: 23px !important;
+  color: white;
+  z-index: 20;
+}
+.contact_v_arrow {
+  transform: translateY(75px);
+  border-left: 2px solid #e9204f;
+  height: 70px;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  z-index: 10;
+}
+
+/* .contact_btn:hover .contact_text {
+    position: absolute;
+    top: 12px;
+    left: 56px;
+    color: white!important;
+    z-index: 20;
+    text-align: center;
+} */
+
+.contact_btn .contact_border {
+  position: absolute;
+  background-color: #e9204f;
+  width: 0%;
+  height: 56px;
+  transition: 0.4s ease-in;
+}
+
+.contact_btn:hover .contact_border {
+  width: 196px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.talk {
+  display: flex;
+  justify-content: space-between !important;
+  /* align-items: center!important; */
+  background-color: #1b1b1b;
+  color: white;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* .talk .four_btn {
+    transform: scale(0.3)!important;
+} */
+
+.phone_1 {
+  transition: 0.3s ease-in;
+  color: white;
+  cursor: pointer;
+}
+
+.phone_1:hover {
+  color: #e9204f;
+}
+
+.phone_2 {
+  transition: 0.3s ease-in;
+  color: white;
+  cursor: pointer;
+}
+
+.phone_2:hover {
+  color: #e9204f;
+}
+
+.phone_number {
+  padding: 40px;
+  background-color: #161616;
+}
+
+.text-btn {
+  cursor: pointer !important;
+}
+
+.button-2 {
+  background: none;
+  color: white;
+  border: none;
+  transition: 0.5s;
+  width: 100px;
+  position: relative;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.button-2:hover {
+  color: #e9204f;
+}
+
+.button-2::after {
+  content: '';
+  position: absolute;
+  right: 100%;
+  left: 0%;
+  height: 2px;
+  top: 20px;
+  background-color: #e9204f;
+  transition: 0.5s;
+}
+
+.button-2:hover::after {
+  left: 0%;
+  right: 40%;
+  color: #e9204f;
+}
+
+/* Four button */
+
+.effect_btn {
+  position: relative;
+  border-radius: 50%;
+  border: 3px solid #e9204f;
+  width: 120px;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+  background-color: #1b1b1b;
+}
+
+.effect_btn .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* display: none; */
+  /* transition: .2s ease-in; */
+}
+
+.effect_btn .btn_color {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  transition: 0.3s ease-in;
+}
+
+.effect_btn:hover .btn_color {
+  height: 120px;
+  background: #3b5999;
+}
+
+/*Effect Btn  */
+
+.circle_btn {
+  position: relative;
+  border-radius: 50% !important;
+  border: 2px solid #e9204f;
+  width: 50px !important;
+  height: 50px !important;
+  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 7px;
+  cursor: pointer;
+}
+
+.circle_btn:hover {
+  transform: translateY(-10px);
+}
+
+.circle_btn i {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: 20px;
+}
+
+.circle_btn:hover i {
+  color: #e9204f;
+}
+
+@media screen and (max-width: 870px) {
+  .four_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center !important;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .four_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .four_btn_1 {
+    margin-bottom: 40px;
+  }
+  .text_talk {
+    margin-bottom: 20px;
+  }
+  .contact_text {
+    margin-bottom: 20px;
+  }
+}
+
+.end {
+  background-color: black;
+  height: 100px;
+}
+
+@media screen and (max-width: 700px) {
+  .end_content {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .end_btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .end {
+    height: 220px;
+  }
+}
+
+.four_btn {
+  width: 100%;
+}

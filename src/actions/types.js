@@ -1,0 +1,2 @@
+export const GET_GOOGLE_LOGIN = 'GET_GOOGLE_LOGIN';
+export const GOOGLE_LOGOUT = 'GOOGLE_LOGOUT';
