@@ -282,6 +282,7 @@ body {
 .responsive_btn {
   color: white;
   font-size: 30px;
+  cursor: pointer;
   /* background-color: #4caf50; */
 }
 

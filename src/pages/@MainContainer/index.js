@@ -290,7 +290,7 @@ const MainContainer = () => {
           color={'grey'}
           style={{ display: '' }}
         />
-        <SassEx />
+        {/* <SassEx /> */}
         <Home className="home" />
         <Service className="service" />
         <Works className="works" />
