@@ -9,6 +9,8 @@ import Client from '../Client';
 import Blog from '../Blog';
 import Contact from '../Contact';
 import ModalLogin from '../../components/Modal';
+import SassEx from '../SassEx';
+
 import $ from 'jquery';
 import { FaChevronUp } from 'react-icons/fa';
 import img_avatar from '../../assets/Images/my_face.jpg';
@@ -288,7 +290,7 @@ const MainContainer = () => {
           color={'grey'}
           style={{ display: '' }}
         />
-
+        <SassEx />
         <Home className="home" />
         <Service className="service" />
         <Works className="works" />
