@@ -139,16 +139,7 @@ const MainContainer = () => {
       payload: null,
     });
   };
-  const Imglogout = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        console.log('ImageLogOut');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
   const gusetLinks = (
     <button className="btn btn-info ml-4 modal_btn" onClick={modalDisplayLogin}>
       Login
@@ -158,9 +149,6 @@ const MainContainer = () => {
     <div className="d-flex  modal_btn">
       <img
         src={img_avatar}
-        onClick={() => {
-          Imglogout();
-        }}
         style={{
           width: '35px',
           marginRight: '5px',
@@ -169,7 +157,6 @@ const MainContainer = () => {
           cursor: 'pointer',
         }}
       />
-      {/* <button onClick={Imglogout}></button> */}
       <span
         className=" ml-4 modal_btn"
         onClick={() => {
@@ -232,7 +219,7 @@ const MainContainer = () => {
         </div>
 
         <div id="myNav" className="overlay">
-          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
+          <a href="" className="closebtn" onClick={closeNav}>
             &times;
           </a>
           <div className="overlay-content">
@@ -260,11 +247,7 @@ const MainContainer = () => {
           </div>
         </div>
         <div id="myNav_1" className="overlay_1">
-          <a
-            href="javascript:void(0)"
-            className="closebtn_1"
-            onClick={closeNav_1}
-          >
+          <a href="" className="closebtn_1" onClick={closeNav_1}>
             &times;
           </a>
           <div className="overlay-content_1">
@@ -281,7 +264,7 @@ const MainContainer = () => {
       </div>
       <div className="Content">
         <div className="d-flex justify-content-center">
-          <ModalLogin className="modal_login" id="modal_login" />
+          <ModalLogin className="modal_login data-toggle" id="modal_login" />
         </div>
         <FaChevronUp
           onClick={scroll_top}
