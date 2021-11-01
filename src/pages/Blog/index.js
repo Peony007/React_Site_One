@@ -16,7 +16,7 @@ const Blog = () => {
           </h4>
         </div>
 
-        <Carousel wrapAround={true} slidesToShow={3} withoutControls={false}>
+        <Carousel wrapAround={true} slidesToShow={3} withoutControls={true}>
           <div className=" zoom-1 ">
             <div className=" blog_text ">
               <div
