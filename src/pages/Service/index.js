@@ -27,14 +27,14 @@ const Service = () => {
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
-                  <i className=" left_icon fas fas fa-browser "></i>
-                  <h6 className=" text_1 ">UX Design</h6>
+                  <i className=" left_icon fas fa-pencil-ruler "></i>
+                  <h6 className=" text_1 ">UC Design</h6>
                   <i className=" fas fa-arrow-right arrow_1 "></i>
                 </button>
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
-                  <i className=" left_icon fas fa-presentation "></i>
+                  <i className=" left_icon fas fa-edit"></i>
                   <h6 className=" text_1 ">Product Design</h6>
                   <i className=" fas fa-arrow-right arrow_1 "></i>
                 </button>
@@ -42,8 +42,8 @@ const Service = () => {
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
                   <i className=" left_icon fas fa-clipboard "></i>
-                  <h6 className=" text_1 ">Content Strategy</h6>
-                  <i className=" fas fa-arrow-right arrow_1 "></i>
+                  <h6 className="text_1">Content Strategy</h6>
+                  <i className="fas fa-arrow-right arrow_1 "></i>
                 </button>
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
@@ -55,14 +55,14 @@ const Service = () => {
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
-                  <i className=" left_icon fas fa-comments "></i>
+                  <i className=" left_icon fas fa-play-circle "></i>
                   <h6 className=" text_1 ">Social Media</h6>
                   <i className=" fas fa-arrow-right arrow_1 "></i>
                 </button>
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
-                  <i className=" left_icon fas fa-bullseye-arrow "></i>
+                  <i className=" left_icon fas fa-hashtag"></i>
                   <h6 className=" text_1 ">Media Planing</h6>
                   <i className=" fas fa-arrow-right arrow_1 "></i>
                 </button>
@@ -76,7 +76,7 @@ const Service = () => {
               </div>
               <div className=" col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
                 <button className=" btn_effect ">
-                  <i className=" left_icon fas fa-file-search "></i>
+                  <i className=" left_icon fas fa-shopping-bag "></i>
                   <h6 className=" text_1 ">SEO Optimization</h6>
                   <i className=" fas fa-arrow-right arrow_1 "></i>
                 </button>

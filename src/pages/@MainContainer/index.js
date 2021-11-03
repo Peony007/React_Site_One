@@ -8,16 +8,13 @@ import About from '../About';
 import Client from '../Client';
 import Blog from '../Blog';
 import Contact from '../Contact';
-import ModalLogin from '../../components/Modal';
-import SassEx from '../SassEx';
+import SignIn from '../../components/SignIn';
 
 import $ from 'jquery';
 import { FaChevronUp } from 'react-icons/fa';
 import img_avatar from '../../assets/Images/my_face.jpg';
 import { GOOGLE_LOGOUT } from '../../actions/types';
-import { getAuth, signOut } from 'firebase/auth';
 
-import './funcscript';
 import './index.css';
 
 import { initializeApp } from 'firebase/app';
@@ -46,6 +43,20 @@ const openNav_1 = () => {
 const closeNav_1 = () => {
   document.getElementById('myNav_1').style.height = '0%';
 };
+
+$(document).ready(function () {
+  $(window).on('scroll', function () {
+    if (window.scrollY > 800) {
+      $('.topnav').addClass('topnav_fixed');
+      $('.topnav').css('top', '-200px');
+      $('.topnav').css('transition', '0.4s');
+      $('.scrollTop').addClass('scroll_fixed');
+    } else {
+      $('.topnav').removeClass('topnav_fixed');
+      $('.scrollTop').removeClass('scroll_fixed');
+    }
+  });
+});
 
 const go_Home = () => {
   $('html,body').animate(
@@ -119,14 +130,6 @@ const scroll_top = () => {
   );
 };
 
-const modalDisplayLogin = () => {
-  console.log('Modal');
-  $('.modal_login').css('display', 'block');
-
-  $('.modal_login').addClass('modal_fixed');
-  $('.modal_login').css('transition', '0.4s');
-};
-
 const MainContainer = () => {
   const dispatch = useDispatch();
   let { googleAuthenticated } = useSelector((state) => state.auth);
@@ -141,9 +144,9 @@ const MainContainer = () => {
   };
 
   const gusetLinks = (
-    <button className="btn btn-info ml-4 modal_btn" onClick={modalDisplayLogin}>
-      Login
-    </button>
+    <a className="modal_btn" data-toggle="modal" data-target="#myModal">
+      <span className="SignIn_text nav_btn">Sign In</span>
+    </a>
   );
   const googleAuthLinks = (
     <div className="d-flex  modal_btn">
@@ -185,7 +188,10 @@ const MainContainer = () => {
             <span>{googleAuthenticated ? googleAuthLinks : gusetLinks}</span>
 
             <a onClick={openNav_1}>
-              <i className="fas fa-search"></i>
+              <i
+                className="fas fa-search"
+                style={{ color: 'white', cursor: 'pointer' }}
+              ></i>
             </a>
             <a className="nav_btn" id="contact_navbtn" onClick={go_Contact}>
               Contact
@@ -263,9 +269,9 @@ const MainContainer = () => {
         </div>
       </div>
       <div className="Content">
-        <div className="d-flex justify-content-center">
-          <ModalLogin className="modal_login data-toggle" id="modal_login" />
-        </div>
+        {/* <div className="d-flex justify-content-center">
+          <SignIn className="modal_login data-toggle" id="modal_login" />
+        </div> */}
         <FaChevronUp
           onClick={scroll_top}
           className="scrollTop"
@@ -273,7 +279,9 @@ const MainContainer = () => {
           color={'grey'}
           style={{ display: '' }}
         />
-        {/* <SassEx /> */}
+        {/* Modal Start */}
+        <SignIn className="modal fade" id="myModal" />
+        {/* Modal End */}
         <Home className="home" />
         <Service className="service" />
         <Works className="works" />

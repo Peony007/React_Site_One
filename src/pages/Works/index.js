@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'nuka-carousel';
-// import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 
 import './index.css';
 
 const Works = () => {
-  // const sm = useMediaQuery({ query: '(max-width: 640px)' });
-  // const md = useMediaQuery({ query: 'max-width: 768px' });
-  // const lg = useMediaQuery({ query: 'max-width: 1024px' });
+  const sm = useMediaQuery({ query: '(max-width: 640px)' });
+  const md = useMediaQuery({ query: '(max-width: 768px)' });
+
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  useEffect(() => {
+    // console.log(md);
+    md ? (sm ? setSlidesToShow(1) : setSlidesToShow(2)) : setSlidesToShow(3);
+  }, [md, sm]);
 
   return (
     <div>
@@ -30,10 +36,14 @@ const Works = () => {
         </div>
 
         <div className="">
-          <Carousel wrapAround={true} slidesToShow={3} withoutControls={true}>
-            <div className="zoom-1">
-              <div className=" black_display "></div>
-              <div className=" work_text ">
+          <Carousel
+            wrapAround={true}
+            slidesToShow={slidesToShow}
+            withoutControls={true}
+          >
+            <div className="zoom_1">
+              <div className="black_display"></div>
+              <div className="work_text">
                 <h3>
                   <b>Woody</b>
                 </h3>
@@ -45,7 +55,7 @@ const Works = () => {
                 style={{ width: '100%', padding: '10px' }}
               />
             </div>
-            <div className="zoom-1">
+            <div className="zoom_1">
               <div className=" black_display "></div>
               <div className=" work_text ">
                 <h3>
@@ -59,7 +69,7 @@ const Works = () => {
                 style={{ width: '100%', padding: '10px' }}
               />
             </div>
-            <div className="zoom-1">
+            <div className="zoom_1">
               <div className=" work_text ">
                 <h3>
                   <b>Interior</b>
@@ -73,7 +83,7 @@ const Works = () => {
                 style={{ width: '100%', padding: '10px' }}
               />
             </div>
-            <div className="zoom-1">
+            <div className="zoom_1">
               <div className=" work_text ">
                 <h3>
                   <b>Electrica</b>
@@ -87,7 +97,7 @@ const Works = () => {
                 style={{ width: '100%', padding: '10px' }}
               />
             </div>
-            <div className="zoom-1">
+            <div className="zoom_1">
               <div className=" black_display "></div>
               <div className=" work_text ">
                 <h3>
@@ -102,7 +112,7 @@ const Works = () => {
                 style={{ width: '100%', padding: '10px' }}
               />
             </div>
-            <div className="zoom-1">
+            <div className="zoom_1">
               <div className=" work_text ">
                 <h3>
                   <b>Bikeer</b>

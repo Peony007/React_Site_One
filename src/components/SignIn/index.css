@@ -1,0 +1,99 @@
+.modal_login {
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  color: white;
+  border-left: #55acee 3px solid;
+  border-top: #dd4b39 5px solid;
+  border-bottom: #3b5998 5px solid;
+  border-right: green 3px solid;
+}
+
+.twitter {
+  background-color: #55acee;
+  color: white;
+}
+.email {
+  color: white;
+  background-color: green;
+}
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+.fb {
+  background-color: #3b5998;
+  color: white;
+}
+.btn_close {
+  font-size: 40px;
+  cursor: pointer;
+}
+.modal_text {
+  font-weight: 100;
+}
+.email_desc {
+  margin-right:30px !important;
+}
+.LoginEmail {
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  outline: 0;
+  width: 70%;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius:20px;
+  padding-left: 20px !important;
+
+
+  border:none !important;
+  padding:10px;
+}
+.LoginPassword {
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius:20px;
+  padding-left: 20px !important;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  border:none !important;
+  outline: 0;
+
+  padding:10px;
+
+}
+
+.Login_btn {
+  /* backgorund-color: #17a2b8 !important; */
+   /* color: #61677c; */
+   padding: 10px;
+   border-radius:20px;
+   width: 83%;
+   font-weight: bold;
+   box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+   transition: all 0.2s ease-in-out;
+   cursor: pointer;
+   font-weight: 600;
+   border:none ;
+   outline:0;
+   margin-top: 20px;
+   border:none !important;
+   outline:0 !important;
+   color: #ae1100;
+
+}
+
+.Login_btn:hover {
+    /* color: #61699c; */
+    font-weight: bold;
+    box-shadow: -10px -2px 5px #fff, 2px 2px 5px #babecc;
+    /* box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc; */
+    /* transition: all 0.2s ease-in-out; */
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.Login_btn:active {
+  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}

@@ -9,7 +9,7 @@ const Client = () => {
         <div className=" client_v_arrow "></div>
       </div>
       <div className=" row ">
-        <div className=" client_image col-lg-5 col-md-6 col-sm-6 col-xs-12 ">
+        <div className=" client_image col-lg-5 col-md-6 col-sm-12 col-xs-12 ">
           <img
             src=" images/client_01.jpg "
             style={{ width: '100%' }}
@@ -17,7 +17,7 @@ const Client = () => {
           />
           <div className="client_image_back"></div>
         </div>
-        <div className=" client_content col-lg-7 col-md-6 col-sm-6 col-xs-12 ">
+        <div className=" client_content col-lg-7 col-md-6 col-sm-12 col-xs-12 ">
           <div className=" d-flex justify-content-start mb-5 mt-0 ">
             <div className=" client_h_arrow "></div>
           </div>
