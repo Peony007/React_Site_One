@@ -67,10 +67,6 @@
     transition: .3s ease-in-out;
 }
 
-.btn_effect .arrow_1 {
-    transform: translateX(0px);
-    transition: .3s ease-in-out;
-}
 
 .btn_effect:hover .arrow_1 {
     /* background-color: red; */
@@ -131,5 +127,7 @@
     color: #e9204f;
 }
 
-
+.service_title {
+    font-weight: bold;
+}
 /* */

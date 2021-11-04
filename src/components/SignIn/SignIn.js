@@ -1,11 +1,22 @@
 import React from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { useDispatch, useSelector } from 'react-redux';
 import { GET_GOOGLE_LOGIN } from '../../actions/types';
+import { Link } from 'react-router-dom';
+import $ from 'jquery';
+// import SignUp from '../../components/SignUp';
 
 import './index.css';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from '@firebase/auth';
 
+// $('#hide').click(function () {
+//   $('p').hide();
+// });
+
+// $('#closeModal').click(function () {
+//   // removeClass('.modal-backdrop fade show');
+//   $('.modal-backdrop fade show').removeClass;
+// });
 const ModalLogin = (props) => {
   const dispatch = useDispatch();
   let googleAuthenticated = useSelector((state) => state.auth);
@@ -25,6 +36,10 @@ const ModalLogin = (props) => {
       .catch((err) => console.log(err));
   };
   console.log('Props', props);
+  // const closeModal = () => {
+  //   // document.getElementById('myModal').style.width = '0%';
+  //   console.log('CloseModal');
+  // };
 
   return (
     <div className="modal fade" id="myModal">
@@ -57,7 +72,18 @@ const ModalLogin = (props) => {
               <div>
                 <button className="Login_btn">Sign In</button>
               </div>
-              <button className="btn btn-info mt-4">Sign Up</button>
+              <div className="d-flex justify-content-between">
+                <Link
+                  id="closeModal"
+                  to="/sign-up"
+                  className="btn btn-info mt-4"
+                >
+                  Sign Up
+                </Link>
+                <Link to="/forgot" className="btn btn-danger mt-4">
+                  Forgot
+                </Link>
+              </div>
             </div>
           </div>
           <div className="modal-footer">

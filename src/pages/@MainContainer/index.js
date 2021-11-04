@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Button, Modal } from 'react-bootstrap';
 import Home from '../Home';
 import Service from '../Service';
 import Works from '../Works';
@@ -8,7 +8,7 @@ import About from '../About';
 import Client from '../Client';
 import Blog from '../Blog';
 import Contact from '../Contact';
-import SignIn from '../../components/SignIn';
+import { Link } from 'react-router-dom';
 
 import $ from 'jquery';
 import { FaChevronUp } from 'react-icons/fa';
@@ -143,11 +143,6 @@ const MainContainer = () => {
     });
   };
 
-  const gusetLinks = (
-    <a className="modal_btn" data-toggle="modal" data-target="#myModal">
-      <span className="SignIn_text nav_btn">Sign In</span>
-    </a>
-  );
   const googleAuthLinks = (
     <div className="d-flex  modal_btn">
       <img
@@ -171,7 +166,16 @@ const MainContainer = () => {
       </span>
     </div>
   );
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const gusetLinks = (
+    <a className="modal_btn">
+      <Button className="SignIn_text nav_btn" onClick={handleShow}>
+        Sign In
+      </Button>
+    </a>
+  );
   return (
     <div className="maincontainer">
       <div className="Navbar">
@@ -279,9 +283,55 @@ const MainContainer = () => {
           color={'grey'}
           style={{ display: '' }}
         />
-        {/* Modal Start */}
-        <SignIn className="modal fade" id="myModal" />
-        {/* Modal End */}
+
+        <div className="SignIn">
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title></Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="container d-flex flex-column">
+                <div className="">
+                  <label className="email_desc">Email : </label>
+                  <input
+                    type="email"
+                    className="LoginEmail"
+                    placeholder="Email Address"
+                  />
+                </div>
+                <div>
+                  <label>Password : </label>
+                  <input
+                    type="password"
+                    className="LoginPassword"
+                    placeholder="Password"
+                  />
+                </div>
+                <div>
+                  <button className="Login_btn">Sign In</button>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <Link
+                    id="closeModal"
+                    to="/sign-up"
+                    className="btn btn-info mt-4"
+                  >
+                    Sign Up
+                  </Link>
+                  <Link to="/forgot" className="btn btn-danger mt-4">
+                    Forgot
+                  </Link>
+                </div>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+
         <Home className="home" />
         <Service className="service" />
         <Works className="works" />

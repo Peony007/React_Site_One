@@ -1,0 +1,21 @@
+.SignUp {
+    background-color:white;
+}
+
+.input_type {
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+  outline: 0;
+  width: 100%;
+  margin-top: 10px;
+  /* margin-left: 10px; */
+  border-radius:7px;
+  padding-left: 20px !important;
+
+
+  border:none !important;
+  padding:10px;
+}
+
+.SignUp {
+    width: 100%;
+}

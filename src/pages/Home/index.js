@@ -67,7 +67,7 @@ const Home = () => {
                   </h1>
                   <h3 className="vision_text text-white ">
                     Inovative Future
-                    <div className="future_arrow "></div>
+                    <span className="future_arrow "></span>
                   </h3>
                   <h5 className="mb-1 pb-1 vision_sm_text">
                     The generated Lorem Ipsum is therefore always free from
