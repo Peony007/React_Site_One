@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import Home from '../Home';
@@ -8,12 +8,16 @@ import About from '../About';
 import Client from '../Client';
 import Blog from '../Blog';
 import Contact from '../Contact';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
+import instance from '../../components/Auth/instance';
+import FaceImg from '../../assets/Images/my_face.jpg';
 
 import $ from 'jquery';
 import { FaChevronUp } from 'react-icons/fa';
 import img_avatar from '../../assets/Images/my_face.jpg';
-import { GOOGLE_LOGOUT } from '../../actions/types';
+import { GOOGLE_LOGOUT, LOG_OUT } from '../../actions/types';
+import { setUser } from '../../actions/authActions';
 
 import './index.css';
 
@@ -59,6 +63,8 @@ $(document).ready(function () {
 });
 
 const go_Home = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.home').offset().top - 160,
@@ -68,6 +74,7 @@ const go_Home = () => {
 };
 
 const go_Service = () => {
+  closeNav();
   $('html,body').animate(
     {
       scrollTop: $('.service').offset().top - 100,
@@ -77,6 +84,8 @@ const go_Service = () => {
 };
 
 const go_Works = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.works').offset().top - 160,
@@ -86,6 +95,8 @@ const go_Works = () => {
 };
 
 const go_About = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.about').offset().top - 160,
@@ -95,6 +106,8 @@ const go_About = () => {
 };
 
 const go_Client = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.client').offset().top + 60,
@@ -104,6 +117,8 @@ const go_Client = () => {
 };
 
 const go_Blog = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.blog').offset().top,
@@ -113,6 +128,8 @@ const go_Blog = () => {
 };
 
 const go_Contact = () => {
+  closeNav();
+
   $('html,body').animate(
     {
       scrollTop: $('.contact').offset().top,
@@ -132,40 +149,17 @@ const scroll_top = () => {
 
 const MainContainer = () => {
   const dispatch = useDispatch();
-  let { googleAuthenticated } = useSelector((state) => state.auth);
+  let { isAuthenticated } = useSelector((state) => state.auth);
+  console.log('isAuthenticated', isAuthenticated);
 
-  console.log('Main_Auth', googleAuthenticated);
-
-  const googleLogOut = () => {
+  const Logout = () => {
     dispatch({
-      type: GOOGLE_LOGOUT,
+      type: LOG_OUT,
       payload: null,
     });
   };
+  console.log('AfterAuthenticated', isAuthenticated);
 
-  const googleAuthLinks = (
-    <div className="d-flex  modal_btn">
-      <img
-        src={img_avatar}
-        style={{
-          width: '35px',
-          marginRight: '5px',
-          borderRadius: '50%',
-          marginRight: '0px',
-          cursor: 'pointer',
-        }}
-      />
-      <span
-        className=" ml-4 modal_btn"
-        onClick={() => {
-          googleLogOut();
-        }}
-        style={{ color: 'white', cursor: 'pointer', fontSize: '30px' }}
-      >
-        <i class="fas fa-sign-out-alt"></i>
-      </span>
-    </div>
-  );
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -176,6 +170,62 @@ const MainContainer = () => {
       </Button>
     </a>
   );
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginstatus, setLogin] = useState(false);
+  const [userDisplayName, setUserDisplayName] = useState('');
+  const token = localStorage.getItem('token');
+  const [modalshow, setModalShow] = useState(false);
+
+  useEffect(() => {
+    instance(token)
+      .post('/')
+      .then((res) => {
+        console.log('What is Effect ');
+        console.log(res);
+        setLogin(true);
+        setUserDisplayName(res.data.name);
+      });
+  }, []);
+
+  const onChange = (e) => {
+    if (e.target.name === 'email') setEmail(e.target.value);
+    if (e.target.name === 'password') setPassword(e.target.value);
+    console.log('eamil', email, password);
+  };
+
+  const signinData = {
+    email: email,
+    password: password,
+  };
+  const history = useHistory();
+  const SignInhandler = () => {
+    axios
+      .post('http://localhost:8000/api/login', signinData)
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem('token', res.data.token);
+        // setModalShow(false);
+        setShow(false);
+        setLogin(true);
+        setUserDisplayName(res.data.user.name);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleLogout = () => {
+    instance(token)
+      .post('/logout')
+      .then((res) => {
+        console.log(res);
+        localStorage.clear();
+        setLogin(false);
+        setUserDisplayName('');
+      });
+  };
+
   return (
     <div className="maincontainer">
       <div className="Navbar">
@@ -183,14 +233,41 @@ const MainContainer = () => {
           className="topnav d-flex align-items-center justify-content-between"
           id="myTopnav"
         >
-          <a className="navbar_left">
+          <a className="navbar_left" href="#">
             <h2>Gentium</h2>
           </a>
           <div className="navbar_right">
             <span></span>
 
-            <span>{googleAuthenticated ? googleAuthLinks : gusetLinks}</span>
-
+            {loginstatus ? (
+              <span className="login_right">
+                {/* {userDisplayName} */}
+                <img className="sing_image" src={FaceImg} />
+                <span className="logout">
+                  <span className="logout-btn m-0" onClick={handleLogout}>
+                    <i
+                      className="fas fa-sign-out-alt logout_icon"
+                      style={{
+                        fontSize: '35px',
+                        color: 'white',
+                        cursor: 'pointer',
+                        marginTop: '0px',
+                        paddingTop: '10px',
+                      }}
+                    ></i>
+                  </span>
+                </span>
+              </span>
+            ) : (
+              <button
+                className="login_right btn btn-info"
+                onClick={() => {
+                  setShow(true);
+                }}
+              >
+                <span className="icon-login">Sign In</span>
+              </button>
+            )}
             <a onClick={openNav_1}>
               <i
                 className="fas fa-search"
@@ -229,7 +306,7 @@ const MainContainer = () => {
         </div>
 
         <div id="myNav" className="overlay">
-          <a href="" className="closebtn" onClick={closeNav}>
+          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
             &times;
           </a>
           <div className="overlay-content">
@@ -257,7 +334,11 @@ const MainContainer = () => {
           </div>
         </div>
         <div id="myNav_1" className="overlay_1">
-          <a href="" className="closebtn_1" onClick={closeNav_1}>
+          <a
+            href="javascript:void(0)"
+            className="closebtn_1"
+            onClick={closeNav_1}
+          >
             &times;
           </a>
           <div className="overlay-content_1">
@@ -287,7 +368,7 @@ const MainContainer = () => {
         <div className="SignIn">
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title></Modal.Title>
+              <Modal.Title>Sign In</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <div className="container d-flex flex-column">
@@ -295,30 +376,37 @@ const MainContainer = () => {
                   <label className="email_desc">Email : </label>
                   <input
                     type="email"
+                    name="email"
                     className="LoginEmail"
                     placeholder="Email Address"
+                    onChange={onChange}
                   />
                 </div>
                 <div>
-                  <label>Password : </label>
+                  <label className="mt-3">Password : </label>
                   <input
                     type="password"
+                    name="password"
                     className="LoginPassword"
                     placeholder="Password"
+                    onChange={onChange}
                   />
                 </div>
                 <div>
-                  <button className="Login_btn">Sign In</button>
+                  <button className="Login_btn" onClick={SignInhandler}>
+                    Sign In
+                  </button>
                 </div>
                 <div className="d-flex justify-content-between">
                   <Link
                     id="closeModal"
                     to="/sign-up"
                     className="btn btn-info mt-4"
+                    required
                   >
                     Sign Up
                   </Link>
-                  <Link to="/forgot" className="btn btn-danger mt-4">
+                  <Link to="/forgot" className="btn btn-danger mt-4" required>
                     Forgot
                   </Link>
                 </div>
@@ -332,7 +420,7 @@ const MainContainer = () => {
           </Modal>
         </div>
 
-        <Home className="home" />
+        <Home />
         <Service className="service" />
         <Works className="works" />
         <About className="about" />

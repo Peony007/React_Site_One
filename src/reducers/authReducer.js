@@ -1,7 +1,16 @@
-import { GET_GOOGLE_LOGIN, GOOGLE_LOGOUT } from '../actions/types';
+import {
+  GET_GOOGLE_LOGIN,
+  GOOGLE_LOGOUT,
+  SET_USER,
+  LOG_OUT,
+} from '../actions/types';
 import isEmpty from '../validation/isEmpty';
 const initialState = {
   googleAuthenticated: false,
+  isAuthenticated: false,
+  email: '',
+  password: '',
+  name: '',
 };
 
 export default function (state = initialState, action) {
@@ -15,6 +24,17 @@ export default function (state = initialState, action) {
       return {
         ...state,
         googleAuthenticated: false,
+      };
+    case SET_USER:
+      state.isAuthenticated = !isEmpty(action.payload);
+      state.email = action.payload.email;
+      state.password = action.payload.password;
+      return state;
+
+    case LOG_OUT:
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     default:
       return state;

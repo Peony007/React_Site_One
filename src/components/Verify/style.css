@@ -1,0 +1,17 @@
+.verify {
+    background-color: rgba(0, 0, 0, 0.8);
+    height:100vh;
+    color: white !important;
+}
+.verify_title {
+    font-size:20px;
+    /* margin-left: 50px; */
+
+}
+.verify_h_arrow {
+    border-bottom: 1px solid white !important;
+    width: 90%;
+    margin-top:20px;
+    margin-left: 50px;
+    /* margin-right: 950px!important; */
+}
