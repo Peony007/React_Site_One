@@ -407,7 +407,7 @@ const MainContainer = () => {
                     Sign Up
                   </Link>
                   <Link to="/forgot" className="btn btn-danger mt-4" required>
-                    Forgot
+                    Forgot Password
                   </Link>
                 </div>
               </div>
