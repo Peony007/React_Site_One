@@ -12,7 +12,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import instance from '../../components/Auth/instance';
 import FaceImg from '../../assets/Images/my_face.jpg';
-
+// import Verify from '../../components/Verify';
 import $ from 'jquery';
 import { FaChevronUp } from 'react-icons/fa';
 import img_avatar from '../../assets/Images/my_face.jpg';
@@ -419,7 +419,7 @@ const MainContainer = () => {
             </Modal.Footer>
           </Modal>
         </div>
-
+        {/* <Verify /> */}
         <Home />
         <Service className="service" />
         <Works className="works" />

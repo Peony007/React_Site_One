@@ -30,7 +30,7 @@ const SignUp = () => {
 
   const SignUphandler = () => {
     axios.post('http://localhost:8000/api/register', signupData).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       history.push('/');
       Swal.fire({
         title: 'Welcome',
