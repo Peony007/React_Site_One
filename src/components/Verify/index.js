@@ -26,7 +26,7 @@ const VerifyEmail = () => {
   };
   return (
     <div className="">
-      <h1 className=" mt-5 text-center">Verify Email</h1>
+      <h1 className=" mt-5 text-center">Verify Email Success</h1>
       <hr />
       <div className="d-flex justify-content-center">
         {/* <a className=" btn btn-success " onClick={verifyhandler}>
