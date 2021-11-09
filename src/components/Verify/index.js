@@ -11,18 +11,34 @@ const VerifyEmail = () => {
   //   // const { token } = useParams();
   //   axios.post('http://localhost:8000/api/verify:token');
   // };
-  const token = localStorage.getItem('token');
-
-  const verifyhandler = () => {
-    console.log('Token', token);
-    axios.post(`http://localhost:8000/api/verify:token`, token).then((res) => {
-      console.log('DATA');
-      history.push('/');
+  const { token } = useParams();
+  axios
+    .post('http://localhost:8000/api/verify', { token: token })
+    .then((res) => {
+      console.log('DATA', res.data);
+      setTimeout(() => {
+        history.push('/');
+      }, 1000);
     });
+
+  const handler = () => {
+    console.log('Handler');
   };
   return (
-    <div>
-      <button onClick={verifyhandler}>Verify</button>
+    <div className="">
+      <h1 className=" mt-5 text-center">Verify Email</h1>
+      <hr />
+      <div className="d-flex justify-content-center">
+        {/* <a className=" btn btn-success " onClick={verifyhandler}>
+          Email Verify
+        </a> */}
+        {/* {() => {
+          verifyhandler();
+        }} */}
+        {/* {() => {
+          handler();
+        }} */}
+      </div>
     </div>
   );
 };

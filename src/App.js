@@ -6,8 +6,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword';
-// import VerifyEmail from './components/Verify';
+import VerifyEmail from './components/Verify';
 // import SignIn from './components/SignIn/SignIn';
+
+require('dotenv').config();
 
 const App = () => {
   return (
@@ -17,8 +19,8 @@ const App = () => {
           <Route exact path="/" component={MainContainer} />
           <Route exact path="/sign-up" component={SignUp} />
           <Route exact path="/forgot" component={ForgotPassword} />
-          {/* <Route exact path="/verify:token" component={Verify} /> */}
-          {/* <Route exact path="/verify" component={VerifyEmail} /> */}
+          {/* <Route exact path="/verify:token" component={VerifyEmail} /> */}
+          <Route exact path="/verify/:token" component={VerifyEmail} />
         </div>
       </Router>
     </Provider>
