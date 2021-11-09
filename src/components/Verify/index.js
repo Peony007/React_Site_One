@@ -13,7 +13,7 @@ const VerifyEmail = () => {
   // };
   const { token } = useParams();
   axios
-    .post('http://localhost:8000/api/verify', { token: token })
+    .post(process.env.REACT_APP_BASE_URL + `verify`, { token: token })
     .then((res) => {
       console.log('DATA', res.data);
       setTimeout(() => {

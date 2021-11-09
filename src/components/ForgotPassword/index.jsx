@@ -21,8 +21,8 @@ const ForgotPassword = () => {
    }
     const resetPassword = (e)=>{ 
         e.preventDefault();
-       
-        axios.post("http://localhost:8000/api/resetpassword", {email: user.email, password: user.password}).then((res)=>{
+        
+        axios.post(process.env.REACT_APP_BASE_URL + `resetpassword`, {email: user.email, password: user.password}).then((res)=>{
             Swal.fire({
                 title: 'Hi',
                 text: 'We send password email to you. Please check your email.',

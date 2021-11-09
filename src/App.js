@@ -8,8 +8,8 @@ import SignUp from './components/SignUp/SignUp';
 import ForgotPassword from './components/ForgotPassword';
 import VerifyEmail from './components/Verify';
 // import SignIn from './components/SignIn/SignIn';
-
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const App = () => {
   return (

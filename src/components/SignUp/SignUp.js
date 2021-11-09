@@ -29,16 +29,18 @@ const SignUp = () => {
   };
 
   const SignUphandler = () => {
-    axios.post('http://localhost:8000/api/register', signupData).then((res) => {
-      // console.log(res.data);
-      history.push('/');
-      Swal.fire({
-        title: 'Welcome',
-        text: 'You need to verify your email. Please check your email-box',
-        icon: 'success',
-        confirmButtonText: 'OK',
+    axios
+      .post(process.env.REACT_APP_BASE_URL + `register`, signupData)
+      .then((res) => {
+        // console.log(res.data);
+        history.push('/');
+        Swal.fire({
+          title: 'Welcome',
+          text: 'You need to verify your email. Please check your email-box',
+          icon: 'success',
+          confirmButtonText: 'OK',
+        });
       });
-    });
     console.log('Happy');
   };
   return (
