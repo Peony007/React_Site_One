@@ -18,7 +18,8 @@ const VerifyEmail = () => {
       console.log('DATA', res.data);
       setTimeout(() => {
         history.push('/');
-      }, 1000);
+      }, 1500);
+      return res.data;
     });
 
   const handler = () => {
@@ -29,15 +30,7 @@ const VerifyEmail = () => {
       <h1 className=" mt-5 text-center">Verify Email Success</h1>
       <hr />
       <div className="d-flex justify-content-center">
-        {/* <a className=" btn btn-success " onClick={verifyhandler}>
-          Email Verify
-        </a> */}
-        {/* {() => {
-          verifyhandler();
-        }} */}
-        {/* {() => {
-          handler();
-        }} */}
+        <h1>OK</h1>
       </div>
     </div>
   );

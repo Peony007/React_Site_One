@@ -22,10 +22,10 @@ const SignUp = () => {
   };
 
   const signupData = {
-    name: user.name,
+    // name: user.name,
     email: user.email,
     password: user.password,
-    password_confirmation: user.password_confirmation,
+    // password_confirmation: user.password_confirmation,
   };
 
   const SignUphandler = () => {
@@ -33,6 +33,7 @@ const SignUp = () => {
       .post(process.env.REACT_APP_BASE_URL + `register`, signupData)
       .then((res) => {
         // console.log(res.data);
+
         history.push('/');
         Swal.fire({
           title: 'Welcome',
@@ -40,6 +41,7 @@ const SignUp = () => {
           icon: 'success',
           confirmButtonText: 'OK',
         });
+        return res.data;
       });
     console.log('Happy');
   };

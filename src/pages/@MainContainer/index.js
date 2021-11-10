@@ -150,16 +150,6 @@ const scroll_top = () => {
 const MainContainer = () => {
   const dispatch = useDispatch();
   let { isAuthenticated } = useSelector((state) => state.auth);
-  console.log('isAuthenticated', isAuthenticated);
-
-  const Logout = () => {
-    dispatch({
-      type: LOG_OUT,
-      payload: null,
-    });
-  };
-  console.log('AfterAuthenticated', isAuthenticated);
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -173,20 +163,19 @@ const MainContainer = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginstatus, setLogin] = useState(false);
   const [userDisplayName, setUserDisplayName] = useState('');
-  const token = localStorage.getItem('token');
+  // const token = localStorage.getItem('token');
+  const [loginStatus, setLoginStatus] = useState(false);
+
   const [modalshow, setModalShow] = useState(false);
 
   useEffect(() => {
-    instance(token)
-      .post('/')
-      .then((res) => {
-        console.log('What is Effect ');
-        console.log(res);
-        setLogin(true);
-        setUserDisplayName(res.data.name);
-      });
+    const token = localStorage.getItem('token');
+    if (token) {
+      console.log('+++tokenShow+++', token);
+
+      setLoginStatus(true);
+    }
   }, []);
 
   const onChange = (e) => {
@@ -202,30 +191,25 @@ const MainContainer = () => {
   const history = useHistory();
   const SignInhandler = () => {
     axios
-      .post('http://localhost:8000/api/login', signinData)
+      .post(process.env.REACT_APP_BASE_URL + `login`, signinData)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem('token', res.data.token);
         // setModalShow(false);
         setShow(false);
-        setLogin(true);
+        setLoginStatus(true);
         setUserDisplayName(res.data.user.name);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  const handleLogout = () => {
-    instance(token)
-      .post('/logout')
-      .then((res) => {
-        console.log(res);
-        localStorage.clear();
-        setLogin(false);
-        setUserDisplayName('');
-      });
-  };
 
+  const handleLogout = () => {
+    console.log('LogOut');
+    localStorage.removeItem('token');
+    setLoginStatus(false);
+  };
   return (
     <div className="maincontainer">
       <div className="Navbar">
@@ -239,7 +223,7 @@ const MainContainer = () => {
           <div className="navbar_right">
             <span></span>
 
-            {loginstatus ? (
+            {loginStatus ? (
               <span className="login_right">
                 {/* {userDisplayName} */}
                 <img className="sing_image" src={FaceImg} />
