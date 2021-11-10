@@ -10,7 +10,7 @@ import Blog from '../Blog';
 import Contact from '../Contact';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-import instance from '../../components/Auth/instance';
+// import instance from '../../components/Auth/instance';
 import FaceImg from '../../assets/Images/my_face.jpg';
 // import Verify from '../../components/Verify';
 import $ from 'jquery';
