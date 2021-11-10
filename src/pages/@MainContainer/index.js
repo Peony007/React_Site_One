@@ -206,9 +206,10 @@ const MainContainer = () => {
   };
 
   const handleLogout = () => {
-    console.log('LogOut');
-    localStorage.removeItem('token');
-    setLoginStatus(false);
+    axios.post(process.env.REACT_APP_BASE_URL + `logout`).then(() => {
+      localStorage.removeItem('token');
+      setLoginStatus(false);
+    });
   };
   return (
     <div className="maincontainer">
