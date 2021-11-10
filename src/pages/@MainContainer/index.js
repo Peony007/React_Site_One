@@ -169,14 +169,14 @@ const MainContainer = () => {
 
   const [modalshow, setModalShow] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      console.log('+++tokenShow+++', token);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     console.log('+++tokenShow+++', token);
 
-      setLoginStatus(true);
-    }
-  }, []);
+  //     setLoginStatus(true);
+  //   }
+  // }, []);
 
   const onChange = (e) => {
     if (e.target.name === 'email') setEmail(e.target.value);
