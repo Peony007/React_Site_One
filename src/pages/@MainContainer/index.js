@@ -170,7 +170,7 @@ const MainContainer = () => {
   const [modalshow, setModalShow] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('user');
     if (token) {
       console.log('+++tokenShow+++', token);
 
