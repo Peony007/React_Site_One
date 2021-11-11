@@ -11,6 +11,7 @@ import VerifyEmail from './components/Verify';
 
 import ResetPassword from './components/ResetPassword';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
           <Route exact path="/forgot" component={ForgotPassword} />
           {/* <Route exact path="/verify:token" component={VerifyEmail} /> */}
           <Route exact path="/verify/:token" component={VerifyEmail} />
-          <Route path="/forgotpassword/:token" component={ResetPassword} />
+          <Route path="/resetpassword/:token" component={ResetPassword} />
         </div>
       </Router>
     </Provider>

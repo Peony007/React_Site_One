@@ -164,13 +164,14 @@ const MainContainer = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userDisplayName, setUserDisplayName] = useState('');
-  // const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   const [loginStatus, setLoginStatus] = useState(false);
 
-  const [modalshow, setModalShow] = useState(false);
+  // const [modalshow, setModalShow] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem('user');
+    // const token = localStorage.getItem('user');
+    // console.log('+++tokenShow+++', token);
     if (token) {
       console.log('+++tokenShow+++', token);
 
@@ -191,25 +192,25 @@ const MainContainer = () => {
   const history = useHistory();
   const SignInhandler = () => {
     axios
-      .post(process.env.REACT_APP_BASE_URL + `login`, signinData)
+      .post('http://localhost:8000/api/login', signinData)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem('token', res.data.token);
         // setModalShow(false);
         setShow(false);
         setLoginStatus(true);
-        setUserDisplayName(res.data.user.name);
+        // setUserDisplayName(res.data.user.name);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const handleLogout = () => {
-    axios.post(process.env.REACT_APP_BASE_URL + `logout`).then(() => {
-      localStorage.removeItem('token');
-      setLoginStatus(false);
-    });
+  const logout = () => {
+    // axios.post('https://byself-laravel.herokuapp.com/api/logout').then(() => {
+    localStorage.removeItem('token');
+    setLoginStatus(false);
+    // });
   };
   return (
     <div className="maincontainer">
@@ -229,7 +230,7 @@ const MainContainer = () => {
                 {/* {userDisplayName} */}
                 <img className="sing_image" src={FaceImg} />
                 <span className="logout">
-                  <span className="logout-btn m-0" onClick={handleLogout}>
+                  <span className="logout-btn m-0" onClick={() => logout()}>
                     <i
                       className="fas fa-sign-out-alt logout_icon"
                       style={{
